@@ -3,8 +3,10 @@ package simba.reflect.set;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import simba.reflect.questions.LinkQuestionEntity;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "Sets")
@@ -15,7 +17,7 @@ public class SetEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SetID")
-    private Long setID;
+    private Integer setID;
 
     @Column(length = 50, name = "Name")
     private String name;
@@ -29,9 +31,9 @@ public class SetEntity {
     @Column(name = "NotificationRepeatTimeHours")
     private Integer notificationRepeatTimeHours;
 
-//    @OneToMany(mappedBy = "set")
-//    private Set<LinkUserSet> linkUsersSets;
-//
-//    @OneToMany(mappedBy = "set")
-//    private Set<LinkQuestion> linkQuestions;
+    @OneToMany(mappedBy = "set")
+    private Set<LinkUsersSetsEntity> linkUsersSets;
+
+    @OneToMany(mappedBy = "set")
+    private Set<LinkQuestionEntity> linkQuestions;
 }

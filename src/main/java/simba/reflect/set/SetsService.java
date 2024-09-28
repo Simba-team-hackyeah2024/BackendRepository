@@ -9,7 +9,10 @@ public class SetsService {
     private SetsRepo setsRepo;
 
     public String getAllSets() {
-
         return setsRepo.findAll().toString();
+    }
+
+    public String getUserSets() {
+        return "yee";
     }
 }
