@@ -10,12 +10,14 @@ import simba.reflect.questions.dto.QuestionDto;
 public class QuestionsService {
 	private QuestionsRepo questionsRepo;
 
-	public String getAllSets() {
-		return questionsRepo.findAll().toString();
-	}
-
 	public List<QuestionDto> getQuestionsFromSet(Integer userId, Integer setId) {
 		return questionsRepo.getQuestionsFromSet(userId, setId);
 	}
 
+	public List<QuestionDto> getAllQuestions() {
+		return questionsRepo.findAll()
+				.stream()
+				.map(q -> new QuestionDto(q.getQuestionID(), q.getQuestion()))
+				.toList();
+	}
 }

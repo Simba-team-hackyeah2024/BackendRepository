@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface QuestionsRepo extends JpaRepository<QuestionsEntity, Integer> {
 	@Query("SELECT new simba.reflect.questions.dto.QuestionDto(q.questionID, q.question) " +
-			"FROM QuestionEntity q JOIN LinkQuestionEntity lq ON q.questionID = lq.question.questionID " +
-			"WHERE lq.user.userId = :userId AND lq.set.setId = :setId")
+			"FROM QuestionsEntity q JOIN LinkQuestionEntity lq ON q.questionID = lq.question.questionID " +
+			"WHERE lq.user.userId = :userId AND lq.set.setID = :setId")
 	List<QuestionDto> getQuestionsFromSet(Integer userId, Integer setId);
 }
