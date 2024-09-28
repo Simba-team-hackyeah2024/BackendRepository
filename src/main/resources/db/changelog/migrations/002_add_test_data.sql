@@ -28,13 +28,13 @@ VALUES
     (4, '2024-09-28 15:00:00'),
     (5, '2024-09-29 16:00:00');
 
-INSERT INTO link_answers (answerid, questionid, userid)
+INSERT INTO link_answers (answerid, questionid, userid, setid)
 VALUES
-    (1, 1, 1),
-    (2, 2, 2),
-    (3, 3, 3),
-    (4, 4, 4),
-    (5, 5, 5);
+    (1, 1, 1, 1),
+    (2, 2, 2, 2),
+    (3, 3, 3, 3),
+    (4, 4, 4, 4),
+    (5, 5, 5, 5);
 
 INSERT INTO notes (note, creationtime, nagging)
 VALUES

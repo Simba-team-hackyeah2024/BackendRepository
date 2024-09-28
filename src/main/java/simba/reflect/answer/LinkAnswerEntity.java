@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import simba.reflect.questions.QuestionsEntity;
+import simba.reflect.set.SetEntity;
 import simba.reflect.users.UsersEntity;
 
 @Entity
@@ -28,4 +29,8 @@ public class LinkAnswerEntity {
     @ManyToOne
     @JoinColumn(name = "userID", nullable = false)
     private UsersEntity user;
+
+    @ManyToOne
+    @JoinColumn(name = "setID", nullable = false)
+    private SetEntity set;
 }

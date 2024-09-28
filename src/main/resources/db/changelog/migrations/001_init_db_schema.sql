@@ -12,6 +12,7 @@ CREATE TABLE link_answers
     answerid   INTEGER                                  NOT NULL,
     questionid INTEGER                                  NOT NULL,
     userid     INTEGER                                  NOT NULL,
+    setid      INTEGER                                  NOT NULL,
     CONSTRAINT pk_link_answers PRIMARY KEY (alinkid)
 );
 
