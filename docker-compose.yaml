@@ -1,26 +1,25 @@
 version: '3.8'
 
 services:
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: mssql_db
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres_db
     environment:
-      - SA_PASSWORD=YourStrong@Passw0rd
-      - ACCEPT_EULA=Y
-      - MSSQL_PID=Express # or choose another edition: Developer, Enterprise, etc.
-      - MSSQL_DATABASE=YourDatabaseName
+      - POSTGRES_USER=reflect_user
+      - POSTGRES_PASSWORD=secretPass
+      - POSTGRES_DB=reflectdb
     ports:
-      - "1433:1433" # Expose SQL Server on the default port
+      - "5432:5432"
     volumes:
-      - mssql_data:/var/opt/mssql
+      - postgres_data:/var/lib/postgresql/data
     networks:
-      - mssql_network
+      - postgres_network
     restart: always
 
 volumes:
-  mssql_data:
+  postgres_data:
     driver: local
 
 networks:
-  mssql_network:
+  postgres_network:
     driver: bridge

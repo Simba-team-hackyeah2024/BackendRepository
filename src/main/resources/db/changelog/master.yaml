@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: Valentyn Bondarenko
+      changes:
+        - sqlFile:
+            path: classpath:/db/changelog/migrations/001_init_db_schema.sql
