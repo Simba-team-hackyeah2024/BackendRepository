@@ -24,4 +24,16 @@ public class UsersEntity {
 
 	@Column(name = "PhoneNumber", nullable = true)
 	private Long phoneNumber;
+
+//	@OneToMany(mappedBy = "user")
+//	private Set<LinkNote> linkNotes;
+//
+//	@OneToMany(mappedBy = "user")
+//	private Set<LinkUserSet> linkUserSets;
+//
+//	@OneToMany(mappedBy = "user")
+//	private Set<LinkQuestion> linkQuestions;
+//
+//	@OneToMany(mappedBy = "user")
+//	private Set<LinkAnswer> linkAnswers;
 }
