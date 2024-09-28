@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    environment:
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express # or choose another edition: Developer, Enterprise, etc.
+      - MSSQL_DATABASE=YourDatabaseName
+    ports:
+      - "1433:1433" # Expose SQL Server on the default port
+    volumes:
+      - mssql_data:/var/opt/mssql
+    networks:
+      - mssql_network
+    restart: always
+
+volumes:
+  mssql_data:
+    driver: local
+
+networks:
+  mssql_network:
+    driver: bridge
