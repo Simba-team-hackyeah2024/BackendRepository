@@ -8,24 +8,25 @@ import simba.reflect.set.SetEntity;
 import simba.reflect.users.UsersEntity;
 
 @Entity
-@Table(name = "LinkNotes")
+@Table(name = "Link_Notes")
 @Getter
 @Setter
 public class LinkNotesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long nLinkID;
+    @Column(name = "NLinkID")
+    private Integer nLinkID;
 
     @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
+    @JoinColumn(name = "UserID", nullable = false)
     private UsersEntity user;
 
     @ManyToOne
-    @JoinColumn(name = "questionID")
+    @JoinColumn(name = "QuestionID")
     private QuestionsEntity question;
 
     @ManyToOne
-    @JoinColumn(name = "setID")
+    @JoinColumn(name = "SetID")
     private SetEntity set;
 
 }

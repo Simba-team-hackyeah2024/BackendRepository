@@ -25,7 +25,7 @@ CREATE TABLE public.Notes (
 );
 
 -- Table: LinkNotes
-CREATE TABLE public.LinkNotes (
+CREATE TABLE public.Link_Notes (
                                   NLinkID SERIAL PRIMARY KEY,
                                   UserID INTEGER NOT NULL,
                                   QuestionID INTEGER NULL,
@@ -34,11 +34,11 @@ CREATE TABLE public.LinkNotes (
 );
 
 -- Table: LinkUsersSets
-CREATE TABLE public.LinkUsersSets (
+CREATE TABLE public.Link_Users_Sets (
                                       UserID INTEGER NOT NULL,
                                       SetID INTEGER NOT NULL,
                                       Priority INTEGER NULL,
-                                      LastAccess TIMESTAMP NULL,
+                                      Last_Access TIMESTAMP NULL,
                                       PRIMARY KEY (UserID, SetID),
                                       CONSTRAINT FK_LinkUsersSets_Users FOREIGN KEY (UserID) REFERENCES public.Users(UserID),
                                       CONSTRAINT FK_LinkUsersSets_Sets FOREIGN KEY (SetID) REFERENCES public.Sets(SetID)
@@ -51,7 +51,7 @@ CREATE TABLE public.Questions (
 );
 
 -- Table: LinkQuestions
-CREATE TABLE public.LinkQuestions (
+CREATE TABLE public.Link_Questions (
                                       QLinkID SERIAL PRIMARY KEY,
                                       QuestionID INTEGER NOT NULL,
                                       SetID INTEGER NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE public.Answers (
 );
 
 -- Table: LinkAnswers
-CREATE TABLE public.LinkAnswers (
+CREATE TABLE public.Link_Answers (
                                     ALinkID SERIAL PRIMARY KEY,
                                     AnswerID INTEGER NOT NULL,
                                     QuestionID INTEGER NOT NULL,

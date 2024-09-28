@@ -14,12 +14,12 @@ public class NotesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long noteID;
+    private Integer noteID;
 
     @Column(columnDefinition = "TEXT")
     private String note;
 
-    @Column
+    @Column(name = "creationtime")
     private LocalDateTime creationTime;
 
     @Column(length = 10)
