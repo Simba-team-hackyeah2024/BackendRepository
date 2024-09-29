@@ -1,10 +1,7 @@
 package simba.reflect.questions;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import simba.reflect.questions.dto.QuestionDto;
 
 import java.util.List;
@@ -22,8 +19,8 @@ public class QuestionsController {
 
 	@GetMapping("/fromSet/{userId}/{setId}")
 	public List<QuestionDto> getQuestionsFromSet(
-			@RequestParam Integer setId,
-			@RequestParam Integer userId) {
+			@PathVariable Integer setId,
+			@PathVariable Integer userId) {
 		return questionsService.getQuestionsFromSet(setId, userId);
 	}
 
