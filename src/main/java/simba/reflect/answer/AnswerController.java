@@ -14,10 +14,15 @@ import java.util.List;
 @RequestMapping("/answers")
 @AllArgsConstructor
 public class AnswerController {
-    private final AnswerService answerService;
+    private AnswerService answerService;
 
-    @GetMapping("/allByQuestionByUser")
+    @GetMapping("/allByQuestionByUser/{userId}/{questionId}")
     public List<AnswerDto> allByQuestionByUser(@RequestParam Integer questionId, @RequestParam Integer userId) {
         return answerService.getAllByQuestionAndUser(questionId, userId);
+    }
+
+    @GetMapping("/allBySetByUser/{userId}/{setId}")
+    public List<AnswerDto> allBySetByUser(@RequestParam Integer setId, @RequestParam Integer userId) {
+        return answerService.getAllBySetAndUser(setId, userId);
     }
 }

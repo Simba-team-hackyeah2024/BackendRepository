@@ -15,4 +15,7 @@ public class AnswerService {
         return answerRepository.findAllByQuestionAndUser(questionId, userId);
     }
 
+    public List<AnswerDto> getAllBySetAndUser(Integer setId, Integer userId) {
+        return answerRepository.findAllBySetAndUser(setId, userId);
+    }
 }

@@ -11,4 +11,9 @@ public interface AnswerRepository extends JpaRepository<AnswerEntity, Integer> {
             "FROM AnswerEntity a JOIN LinkAnswerEntity la ON a.answerID = la.answer.answerID " +
             "WHERE la.question.questionID = :questionId AND la.user.userId = :userId")
     List<AnswerDto> findAllByQuestionAndUser(Integer questionId, Integer userId);
+
+    @Query("SELECT new simba.reflect.answer.dto.AnswerDto(a.answerID, a.answer, a.date) " +
+            "FROM AnswerEntity a JOIN LinkAnswerEntity la ON a.answerID = la.answer.answerID " +
+            "WHERE la.set.setID = :setId AND la.user.userId = :userId")
+    List<AnswerDto> findAllBySetAndUser(Integer setId, Integer userId);
 }

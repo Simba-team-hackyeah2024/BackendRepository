@@ -20,7 +20,7 @@ public class QuestionsController {
 		return questionsService.getAllQuestions();
 	}
 
-	@GetMapping("/fromSet")
+	@GetMapping("/fromSet/{setId}/{userId}")
 	public List<QuestionDto> getQuestionsFromSet(
 			@RequestParam Integer userId,
 			@RequestParam Integer setId) {
